@@ -1,0 +1,1 @@
+insert into "users"("name", "login", "password", "status") VALUES ('{}', '{}', '{}', 'Не в сети')
