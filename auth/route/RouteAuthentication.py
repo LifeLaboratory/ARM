@@ -2,6 +2,7 @@
 from auth.api.helpers.service import Gis as gs
 from flask_restful import Resource, reqparse
 from auth.api.src.ChoiceRegistration import choice
+from auth.api.src.Authentication import auth
 
 class Authentication(Resource):
     def __init__(self):
@@ -22,5 +23,6 @@ class Authentication(Resource):
 
     def post(self):
         data = self.parse_data()
-        answer = choice(data)
+        print(data)
+        answer = auth(data)
         return answer, 200, {'Access-Control-Allow-Origin': '*'}

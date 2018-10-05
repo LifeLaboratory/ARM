@@ -1,6 +1,4 @@
-import hashlib
 import logging
-import uuid
 import auth.api.helpers.base_name as names
 from auth.api.helpers.service import Sql
 
@@ -25,7 +23,7 @@ def registration(user_data):
     answer = inputCompany(registration_data)
     if answer.get(names.ANSWER) is not names.SUCCESS:
         return {names.ANSWER: names.WARNING, names.DATA: {"error_info":"Ошибка запроса к базе данных"}}
-    return {names.ANSWER: names.SUCCESS}
+    return answer
 
 def inputCompany(user_data):
     try:
