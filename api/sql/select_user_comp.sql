@@ -3,11 +3,11 @@ select coalesce(
   select exists(
     select 1
     from "users"
-    where "id_user" = %d
+    where "id_user" = {}
     ),
   select exists(
     select 1
       from "company"
-      where "id_company" = %d
+      where "id_company" = {}
   )
-) 
+) users
