@@ -5,5 +5,11 @@ WORKDIR /usr/src/app
 COPY requirements.txt ./
 RUN pip install -r requirements.txt
 COPY . .
-COPY ./../api .
+#COPY ./../api .
 CMD [ "python", "./main.py" ]
+
+
+
+
+
+
