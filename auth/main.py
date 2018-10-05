@@ -1,10 +1,11 @@
 # coding=utf-8
 import sys
 import os
+"""
 sys.path.append(os.getcwd())
 sys.path.append(os.getcwd()+'/api')
 sys.path.append(os.getcwd()+'/../auth/')
-
+"""
 import flask
 import logging
 from flask_restful import Api

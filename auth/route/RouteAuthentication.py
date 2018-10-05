@@ -1,8 +1,8 @@
 # coding=utf-8
-from api.helpers.service import Gis as gs
+from auth.api.helpers.service import Gis as gs
 from flask_restful import Resource, reqparse
-from api.src.ChoiceRegistration import choice
-from api.src.Authentication import auth
+from auth.api.src.ChoiceRegistration import choice
+from auth.api.src.Authentication import auth
 
 class Authentication(Resource):
     def __init__(self):
