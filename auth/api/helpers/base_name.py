@@ -5,7 +5,7 @@ SUCCESS = "Success"
 ANSWER = "Answer"
 
 DATA = "Data"
-
+COMPANY = "Company"
 ID = "ID"
 ID_EVENT = "id_event"
 LOGIN = "Login"
