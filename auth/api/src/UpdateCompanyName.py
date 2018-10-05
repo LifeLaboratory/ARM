@@ -4,7 +4,7 @@ import logging
 
 
 def update(user_data):
-    check = [names.NAME, names.ID_COMPANY]
+    check = [names.NAME, names.ID_COMPANY, names.DESCRIPTION]
     auth_data = dict.fromkeys(check, '')
     error = False
     for data in check:
