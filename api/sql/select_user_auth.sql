@@ -7,15 +7,15 @@ from (
   select (
   select "id_user"
   from "users"
-  where "login" = '{login}'
-    and "password" = '{password}'
+  where "login" = '{Login}'
+    and "password" = '{Password}'
   limit 1
   ) "id_user",
   (
   select "id_company"
   from "company"
-  where "login" = '{login}'
-    and "password" = '{password}'
+  where "login" = '{Login}'
+    and "password" = '{Password}'
   limit 1
   ) "id_company"
 ) nd

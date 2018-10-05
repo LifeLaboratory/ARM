@@ -1,5 +1,5 @@
 -- Обновить статус оператора
 update "users"
-set "status" = '{status}'
+set "status" = '{Status}'
 where
     "id_user" = {id_user}
