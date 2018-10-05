@@ -14,8 +14,13 @@ class Authentication(Resource):
         self.data = self.__args.get('data', None)
         self.data = gs.converter(self.data)
         return self.data
+
     def put(self):
         data = self.parse_data()
         answer = choice(data)
         return answer, 200, {'Access-Control-Allow-Origin': '*'}
 
+    def post(self):
+        data = self.parse_data()
+        answer = choice(data)
+        return answer, 200, {'Access-Control-Allow-Origin': '*'}
