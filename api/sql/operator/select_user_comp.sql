@@ -4,13 +4,13 @@ select
     (select exists(
       select 1
       from "users"
-      where "id_user" = {}
+      where "id_user" = {id_user}
       )
     ),
     (select exists(
       select 1
       from "company"
-      where "id_company" = {}
+      where "id_company" = {id_company}
       )
     )
 ) users
