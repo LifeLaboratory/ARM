@@ -80,6 +80,8 @@ class Sql:
             return Sql._query_exec_args(query, args)
         if query and not args:
             return Sql._query_exec(query)
+        if file and args:
+            return Sql._query_file_args_exec(file, args)
         if file:
             return Sql._query_file_exec(file)
         return None
@@ -92,6 +94,12 @@ class Sql:
     def _query_file_exec(file):
         with open(file, 'r') as f:
             query = f.read()
+            return Sql._exec(query)
+
+    @staticmethod
+    def _query_file_args_exec(file, args):
+        with open(file, 'r') as f:
+            query = f.read().format(args)
             return Sql._exec(query)
 
     @staticmethod
