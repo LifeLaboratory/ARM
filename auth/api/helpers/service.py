@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import json
 import psycopg2
-from config.config import DATABASE
+from auth.config.config import DATABASE
 from datetime import date, datetime
 from psycopg2.extras import RealDictCursor
 
@@ -80,6 +80,8 @@ class Sql:
             return Sql._query_exec_args(query, args)
         if query and not args:
             return Sql._query_exec(query)
+        if file and args:
+            return Sql._query_file_args_exec(file, args)
         if file:
             return Sql._query_file_exec(file)
         return None
@@ -95,9 +97,15 @@ class Sql:
             return Sql._exec(query)
 
     @staticmethod
+    def _query_file_args_exec(file, args):
+        with open(file, 'r') as f:
+            query = f.read().format(**args)
+            print(query)
+            return Sql._exec(query)
+
+    @staticmethod
     def _query_exec_args(query, args):
         query.format(**args)
-        print(query)
         return Sql._exec(query)
 
     @staticmethod

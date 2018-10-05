@@ -34,7 +34,7 @@ def inputCompany(user_data):
     try:
         #id_user = gs.SqlQuery(sql)[0]['id_user']
         print(user_data)
-        session = Sql.exec(file="../sql/company/insert_company.sql", args=user_data)
+        session = Sql.exec(file="api/sql/company/insert_company.sql", args=user_data)
         print("ses:", session)
     except:
         logging.error('error: Ошибка запроса к базе данных. Возможно такой пользователь уже есть')
