@@ -4,6 +4,6 @@ services:
   auth:
     build: auth/
     volumes:
-      - ./app/ :/app/
+      - ./auth/ :/auth/
     ports:
       - "13451:13451"

@@ -1,15 +1,12 @@
 # coding=utf-8
 import sys
 import os
-"""
-sys.path.append(os.getcwd())
-sys.path.append(os.getcwd()+'/api')
-sys.path.append(os.getcwd()+'/../auth/')
-"""
+sys.path.append(os.getcwd()+'/../')
+sys.path.append(os.getcwd()+'../')
 import flask
 import logging
 from flask_restful import Api
-from route.route_list import ROUTES
+from auth.route.route_list import ROUTES
 
 logging.basicConfig(filename='logger.log',
                         format='%(filename)-12s[LINE:%(lineno)d] %(levelname)-8s %(message)s %(asctime)s ',
