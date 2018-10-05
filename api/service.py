@@ -99,7 +99,7 @@ class Sql:
     @staticmethod
     def _query_file_args_exec(file, args):
         with open(file, 'r') as f:
-            query = f.read().format(args)
+            query = f.read().format(**args)
             return Sql._exec(query)
 
     @staticmethod
