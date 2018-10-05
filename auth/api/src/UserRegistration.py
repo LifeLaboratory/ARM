@@ -29,10 +29,10 @@ def registration(user_data):
 
 def inputUser(user_data):
     try:
-        session = Sql.exec(file="api/sql/operator/insert_user.sql", args=user_data)
+        id = Sql.exec(file="api/sql/operator/insert_user.sql", args=user_data)
     except:
         logging.error('error: Ошибка запроса к базе данных. Возможно такой пользователь уже есть')
         return {names.ANSWER: names.WARNING,
                 names.DATA: {"error_info":"Ошибка запроса к базе данных. Возможно такой пользователь уже есть"}}
-    return {names.ANSWER: names.SUCCESS, names.DATA: session}
+    return {names.ANSWER: names.SUCCESS}
 
