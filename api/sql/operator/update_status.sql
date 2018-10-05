@@ -3,3 +3,4 @@ update "users"
 set "status" = '{Status}'
 where
     "id_user" = {id_user}
+returning "id_user"
