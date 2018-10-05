@@ -1,1 +1,0 @@
-insert into "company"("name", "description", "login", "password") VALUES ('{}', '{}', '{}', '{}')
