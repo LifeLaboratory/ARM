@@ -1,3 +1,4 @@
+-- добавление данных оператора
 with ins as (
 insert into "users"("name", "login", "password", "status")
   VALUES ('{name}', '{login}', '{password}', 'Не в сети')
