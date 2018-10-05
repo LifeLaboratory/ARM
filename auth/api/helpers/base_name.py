@@ -3,7 +3,7 @@ ERROR = "Error"
 OK = "Ok"
 SUCCESS = "Success"
 ANSWER = "Answer"
-
+DESCRIPTION = "Description"
 DATA = "Data"
 COMPANY = "Company"
 ID = "ID"
