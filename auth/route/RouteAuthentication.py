@@ -17,6 +17,5 @@ class Authentication(Resource):
     def put(self):
         data = self.parse_data()
         answer = choice(data)
-        print(answer)
         return answer, 200, {'Access-Control-Allow-Origin': '*'}
 

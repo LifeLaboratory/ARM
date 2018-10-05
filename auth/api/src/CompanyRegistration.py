@@ -28,14 +28,8 @@ def registration(user_data):
     return answer
 
 def inputCompany(user_data):
-    password_hash = hashlib.md5()
-    password_hash.update(user_data[names.PASSWORD].encode())
-    user_data[names.PASSWORD] = password_hash.hexdigest()
     try:
-        #id_user = gs.SqlQuery(sql)[0]['id_user']
-        print(user_data)
         session = Sql.exec(file="api/sql/company/insert_company.sql", args=user_data)
-        print("ses:", session)
     except:
         logging.error('error: Ошибка запроса к базе данных. Возможно такой пользователь уже есть')
         return {names.ANSWER: names.WARNING,
