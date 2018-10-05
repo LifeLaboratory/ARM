@@ -1,8 +1,8 @@
 import hashlib
 import logging
 import uuid
-import auth.api.helpers.base_name as names
-from auth.api.helpers.service import Sql
+import api.helpers.base_name as names
+from api.helpers.service import Sql
 
 def registration(user_data):
     """
