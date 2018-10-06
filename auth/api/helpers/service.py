@@ -100,6 +100,7 @@ class Sql:
     def _query_file_args_exec(file, args):
         with open(file, 'r') as f:
             query = f.read().format(**args)
+            print()
             print(query)
             return Sql._exec(query)
 

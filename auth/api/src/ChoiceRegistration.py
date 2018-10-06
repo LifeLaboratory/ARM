@@ -7,6 +7,7 @@ from auth.api.src.UpdateCompanyAuth import update as uCAuth
 from auth.api.src.UpdateCompanyName import update as uCName
 
 def choice(user_data):
+    """
     if user_data.get(names.NAME, None) is not None and user_data.get(names.ID_COMPANY, None) is not None and user_data.get(names.LOGIN, None) is None:
         print("UpdateCompanyName")
         answer = uCName(user_data)
@@ -19,7 +20,8 @@ def choice(user_data):
     elif user_data.get(names.ID_USER, None) is not None:
         print("UpdateUserAuth")
         answer = uAuth(user_data)
-    elif user_data.get(names.ID_COMPANY, None) is None:
+    """
+    if user_data.get(names.ID_COMPANY, None) is None and user_data.get(names.DESCRIPTION, None) is not None:
         print("Company registration")
         answer = CompReg(user_data)
     else:

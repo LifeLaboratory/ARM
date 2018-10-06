@@ -5,6 +5,7 @@ from auth.api.src.ChoiceRegistration import choice
 from auth.api.src.Authentication import auth
 from auth.api.src.Operators import listOperators
 from auth.api.src.sessionToId import convert
+import auth.api.helpers.base_name as names
 
 class Authentication(Resource):
     def __init__(self):
@@ -23,8 +24,16 @@ class Authentication(Resource):
     def put(self):
         data = self.parse_data()
         condata = convert(data)
-        print("condata", condata)
-        answer = choice(data)
+        #print("DATA", data)
+        #print("CONDATA", condata[names.DATA])
+        if condata[names.DATA][names.ID_USER] is None:
+            data[names.ID_COMPANY] = condata[names.DATA][names.ID_COMPANY]
+        else:
+            data[names.ID_COMPANY] = condata[names.DATA][names.ID_COMPANY]
+            data[names.ID_USER] = condata[names.DATA][names.ID_USER]
+        #print("DATA", data)
+        answer = choice(condata[names.DATA])
+        answer = "OK"
         return answer, 200, {'Access-Control-Allow-Origin': '*'}
 
     def post(self):

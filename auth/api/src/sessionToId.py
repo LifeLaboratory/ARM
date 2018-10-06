@@ -4,6 +4,7 @@ import logging
 
 
 def convert(user_data):
+    print("Convert")
     check = [names.SESSION]
     auth_data = dict.fromkeys(check, '')
     error = False
@@ -28,5 +29,5 @@ def selectID(user_data):
         logging.error('error: Ошибка запроса к базе данных. Возможно такой пользователь уже есть')
         return {names.ANSWER: names.WARNING,
                 names.DATA: {"error_info":"Ошибка запроса к базе данных. Возможно такой пользователь уже есть"}}
-    return {names.ANSWER: names.SUCCESS, names.DATA: session}
+    return {names.ANSWER: names.SUCCESS, names.DATA: session[0]}
 
