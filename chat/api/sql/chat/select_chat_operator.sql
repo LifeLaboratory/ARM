@@ -1,7 +1,7 @@
 -- Получает все чаты оператора
 select "id_chat"
   --, "status" as "Status"
-  , "date" as "Data"
+  , "date"::text as "Data"
   --, "rating" as "Rating"
   --, "accept" as "Accept"
   , "id_chat" as "id_client"
