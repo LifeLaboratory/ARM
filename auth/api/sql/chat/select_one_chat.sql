@@ -1,4 +1,7 @@
-select *
+select "id_chat"
+  , "message"
+  , "data"
+  , "sender"
 from "chat_message"
 where "id_chat" = {id_chat}
   and exists(
