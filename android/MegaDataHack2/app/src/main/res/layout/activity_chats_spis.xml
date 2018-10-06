@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:openDrawer="start">
+    tools:openDrawer="right">
 
     <include
         layout="@layout/app_bar_chats_spis"
@@ -14,10 +14,19 @@
         android:layout_height="match_parent" />
 
     <android.support.design.widget.NavigationView
-        android:id="@+id/nav_view"
+        android:id="@+id/archive"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_gravity="start"
+        android:layout_gravity="right"
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/nav_header_chats_spis"
+        app:menu="@menu/activity_chats_spis_drawer" />
+
+    <android.support.design.widget.NavigationView
+        android:id="@+id/personal"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="left"
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/nav_header_chats_spis"
         app:menu="@menu/activity_chats_spis_drawer" />

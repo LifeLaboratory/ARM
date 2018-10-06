@@ -34,7 +34,11 @@
         <activity
             android:name=".chats_spis"
             android:label="@string/title_activity_chats_spis"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Edit_personal_data"
+            android:label="@string/title_activity_edit_personal_data" />
+        <activity android:name=".Oper_spis"></activity>
     </application>
 
 </manifest>

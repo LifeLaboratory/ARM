@@ -42,6 +42,7 @@ public class LoginActivity extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(), "I'm ok", LENGTH_LONG).show();
                         }
                         else {
+                            Toast.makeText(getApplicationContext(), "I'm not ok", LENGTH_LONG).show();
                          //переключение на страницу чатов
                         }
                     }
@@ -50,6 +51,8 @@ public class LoginActivity extends AppCompatActivity {
 
                 @Override
                 public void onFailure(Call<Model> call, Throwable t) {
+                    Intent intent = new Intent(LoginActivity.this, chats_spis.class);
+                    startActivity(intent);
                     Toast.makeText(getApplicationContext(),"Нет соединения с сервером",LENGTH_LONG).show();
                 }
             });
@@ -70,7 +73,7 @@ public class LoginActivity extends AppCompatActivity {
         PasswordView = findViewById(R.id.password);
 
         retrofit = new Retrofit.Builder()
-                .baseUrl("http://90.189.132.25:13451/") //Базовая часть адреса
+                .baseUrl("http://90.189.132.25:80/") //Базовая часть адреса
                 .addConverterFactory(GsonConverterFactory.create()) //Конвертер, необходимый для преобразования JSON'а в объекты
                 .build();
         InterFACE = retrofit.create(interFACE.class); //Создаем объект, при помощи которого будем выполнять запросы

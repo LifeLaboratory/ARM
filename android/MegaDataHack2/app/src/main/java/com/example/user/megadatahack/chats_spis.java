@@ -38,7 +38,7 @@ public class chats_spis extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = (NavigationView) findViewById(R.id.archive);
         navigationView.setNavigationItemSelectedListener(this);
     }
 
