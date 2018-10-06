@@ -1,4 +1,4 @@
-from route.RouteAuthentication import Authentication
+from route.RouteChat import Authentication
 
 
 ROUTES = {
