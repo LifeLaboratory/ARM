@@ -23,17 +23,18 @@ class Authentication(Resource):
 
     def put(self):
         data = self.parse_data()
-        condata = convert(data)
+
         #print("DATA", data)
         #print("CONDATA", condata[names.DATA])
-        if condata[names.DATA][names.ID_USER] is None:
-            data[names.ID_COMPANY] = condata[names.DATA][names.ID_COMPANY]
-        else:
-            data[names.ID_COMPANY] = condata[names.DATA][names.ID_COMPANY]
-            data[names.ID_USER] = condata[names.DATA][names.ID_USER]
-        #print("DATA", data)
-        answer = choice(condata[names.DATA])
-        answer = "OK"
+        if data.get(names.SESSION, None) is not None:
+            condata = convert(data)
+            if condata[names.DATA].get(names.ID_USER, None) is None and condata[names.DATA].get(names.ID_COMPANY, None) is not None:
+                data[names.ID_COMPANY] = condata[names.DATA][names.ID_COMPANY]
+            elif condata[names.DATA].get(names.ID_USER, None) is not None and condata[names.DATA].get(names.ID_Company, None) is not None:
+                data[names.ID_COMPANY] = condata[names.DATA][names.ID_COMPANY]
+                data[names.ID_USER] = condata[names.DATA][names.ID_USER]
+            print("DATA", data)
+        answer = choice(data)
         return answer, 200, {'Access-Control-Allow-Origin': '*'}
 
     def post(self):
