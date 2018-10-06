@@ -2,4 +2,3 @@
 select *
 from "users"
 where "id_user" = {id_user}
-  and "id_company" = {id_company}
