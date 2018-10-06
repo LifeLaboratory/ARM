@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import json
 import psycopg2
-from auth.config.config import DATABASE
+from api.config.config import DATABASE
 from datetime import date, datetime
 from psycopg2.extras import RealDictCursor
 
