@@ -7,14 +7,14 @@ GROUP_ID = '172231442'
 def get_from_operator():
     return 1,1
 
-def main():
+def send_msg_to_vk(str_chat_id, msg):
+    vk_chat_id = str_chat_id.split('|')[1]
     vk_session = vk_api.VkApi(token=ACCESS_TOKEN_2)
     vk = vk_session.get_api()
-    while True:
-        chat_id, msg = get_from_operator()
-        vk.messages.send(user_id=chat_id, message=msg)
+    vk.messages.send(user_id=vk_chat_id, message=msg)
 
-
+def main():
+    send_msg_to_vk('vk|56176108', "asdasdasd")
 
 if __name__ == '__main__':
     main()
