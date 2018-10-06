@@ -1,7 +1,7 @@
 -- Получает все чаты оператора
 select "id_chat"
   --, "status" as "Status"
-  , "date" as "Data"
+  , "date"::text as "Data"
   --, "rating" as "Rating"
   --, "accept" as "Accept"
   , "id_chat" as "id_client"
@@ -14,5 +14,5 @@ select "id_chat"
     ) as "Text"
 from "chat_list"
 where "id_user" = {id_user}
-  and "status" = 1
+  and "status" = '0'::text
 order by "date" desc
