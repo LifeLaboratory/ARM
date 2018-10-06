@@ -1,5 +1,6 @@
 -- получаем список оператов компании
-select "name" as "Name"
+select "id_user"
+  , "name" as "Name"
   , "status" as "Status"
 from users
 where "id_user" = any(
