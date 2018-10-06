@@ -6,4 +6,4 @@ returning "id_company"
 )
 insert into "session"("session", "id_company")
 select md5(random()::text || clock_timestamp()::text)::uuid, "id_company" from ins
-returning "session"
+returning "session" as "Session"

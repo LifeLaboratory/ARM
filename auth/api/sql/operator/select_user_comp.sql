@@ -13,4 +13,4 @@ select
       where "id_company" = {id_company}
       )
     )
-) users
+) as "Users"

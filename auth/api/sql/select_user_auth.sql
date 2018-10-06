@@ -20,4 +20,4 @@ from (
   ) "id_company"
 ) nd
 where "id_user" is not null or "id_company" is not null
-returning "session"
+returning "session" as "Session"
