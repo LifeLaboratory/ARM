@@ -6,7 +6,7 @@ with session_t as (
 select "id_user"
   , coalesce("id_company",
       (
-       select "id_user"
+       select "id_company"
        from "user_company"
        where user_company."id_user" = session_t."id_user"
        limit 1
