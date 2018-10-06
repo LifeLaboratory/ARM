@@ -1,2 +1,4 @@
-insert into "chat_message"("")
-select {}
+insert into "chat_message"("id_chat", "message", "data", "sender")
+select ('{SALT}'::text || '|' || '{id_client}'::text)::text
+, '{Message}', '{Data_message}'::timestamp, '{Sender}'
+returning "id_message"

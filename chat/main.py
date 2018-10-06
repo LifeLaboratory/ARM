@@ -6,11 +6,11 @@ sys.path.append(os.getcwd()+'../')
 import flask
 import logging
 from flask_restful import Api
-from auth.route.route_list import ROUTES
+from chat.route.route_list import ROUTES
 
-logging.basicConfig(filename='logger.log',
-                        format='%(filename)-12s[LINE:%(lineno)d] %(levelname)-8s %(message)s %(asctime)s ',
-                        level=logging.DEBUG)
+# logging.basicConfig(filename='logger.log',
+#                         format='%(filename)-12s[LINE:%(lineno)d] %(levelname)-8s %(message)s %(asctime)s ',
+#                         level=logging.DEBUG)
 
 _app = flask.Flask(__name__)
 _app.config['JSON_AS_ASCII'] = False
