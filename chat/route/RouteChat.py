@@ -65,9 +65,7 @@ class Classificator(Resource):
             data = dict()
             data[names.SESSION] = self.session
             condata = self.selectid(data)
-            print("CONDATA: ", condata)
             answer = get_chat_list_operator(condata[names.ID_USER])
-            answer = gs.converter(answer)
         else:
             answer = {names.ANSWER: "Error", names.DATA: {"error_info": "Session not found"}}
         return answer, 200, {'Access-Control-Allow-Origin': '*'}
