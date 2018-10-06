@@ -39,12 +39,14 @@ class Authentication(Resource):
         data = self.parse_data()
         condata = self.selectid(data)
         answer = choice(condata)
-        return answer, 200, {'Access-Control-Allow-Origin': '*'}
+        conanswer = gs.converter(answer)
+        return conanswer, 200, {'Access-Control-Allow-Origin': '*'}
 
     def post(self):
         data = self.parse_data()
         answer = auth(data)
-        return answer, 200, {'Access-Control-Allow-Origin': '*'}
+        conanswer = gs.converter(answer)
+        return conanswer, 200, {'Access-Control-Allow-Origin': '*'}
 
     def get(self):
         self.session = self.__args.get('Session', None)
@@ -52,4 +54,5 @@ class Authentication(Resource):
         data[names.SESSION] = self.session
         condata = self.selectid(data)
         answer = profile(condata)
-        return answer, 200, {'Access-Control-Allow-Origin': '*'}
+        conanswer = gs.converter(answer)
+        return conanswer, 200, {'Access-Control-Allow-Origin': '*'}
