@@ -13,6 +13,7 @@ class Authentication(Resource):
         self.__parser = reqparse.RequestParser()
         self.__parser.add_argument('data')
         self.__parser.add_argument('Session')
+        self.__parser.add_argument('Param')
         self.__args = self.__parser.parse_args()
         self.data = None
         self.session = None
@@ -38,6 +39,7 @@ class Authentication(Resource):
     def put(self):
         data = self.parse_data()
         condata = self.selectid(data)
+        print("CONDATA :", condata)
         answer = choice(condata)
         return answer, 200, {'Access-Control-Allow-Origin': '*'}
 
@@ -48,7 +50,14 @@ class Authentication(Resource):
 
     def get(self):
         self.session = self.__args.get('Session', None)
-        if self.session is not None:
+        self.param = self.__args.get('Param', None)
+        if self.session is not None and self.param == "GetOperators":
+            data = dict()
+            data[names.SESSION] = self.session
+            condata = self.selectid(data)
+            #print(condata)
+            answer = listOperators(condata)
+        elif self.session is not None:
             data = dict()
             data[names.SESSION] = self.session
             condata = self.selectid(data)

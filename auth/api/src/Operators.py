@@ -1,3 +1,4 @@
+# coding=utf-8
 import auth.api.helpers.base_name as names
 from auth.api.helpers.service import Sql
 import logging
@@ -23,10 +24,10 @@ def listOperators(user_data):
 
 def selectOperators(user_data):
     try:
-        session = Sql.exec(file="api/sql/company/select_comp_users.sql", args=user_data)
+        operators = Sql.exec(file="api/sql/company/select_comp_users.sql", args=user_data)
     except:
         logging.error('error: Ошибка запроса к базе данных. Возможно такой пользователь уже есть')
         return {names.ANSWER: names.WARNING,
                 names.DATA: {"error_info":"Ошибка запроса к базе данных. Возможно такой пользователь уже есть"}}
-    return {names.ANSWER: names.SUCCESS, names.DATA: session}
+    return {names.ANSWER: names.SUCCESS, names.DATA: operators}
 
