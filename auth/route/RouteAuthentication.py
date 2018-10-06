@@ -4,6 +4,7 @@ from flask_restful import Resource, reqparse
 from auth.api.src.ChoiceRegistration import choice
 from auth.api.src.Authentication import auth
 from auth.api.src.Operators import listOperators
+from auth.api.src.sessionToId import convert
 
 class Authentication(Resource):
     def __init__(self):
@@ -21,6 +22,8 @@ class Authentication(Resource):
 
     def put(self):
         data = self.parse_data()
+        condata = convert(data)
+        print("condata", condata)
         answer = choice(data)
         return answer, 200, {'Access-Control-Allow-Origin': '*'}
 
