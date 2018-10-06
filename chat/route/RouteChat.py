@@ -4,7 +4,7 @@ from flask_restful import Resource, reqparse
 from chat.api.src.Chat import *
 from chat.api.helpers.sessionToId import convert
 
-class Classificator(Resource):
+class Chat(Resource):
     def __init__(self):
         self.__parser = reqparse.RequestParser()
         self.__parser.add_argument('data')
