@@ -5,5 +5,28 @@ services:
     build: auth/
     volumes:
       - ./auth/ :/auth/
+    expose:
+      - "13451"
+  chat:
+    build: chat/
+    volumes:
+      - ./chat/ :/chat/
+    expose:
+      - "13452"
+  classification:
+    build: classification/
+    volumes:
+      - ./classification/ :/classification/
+    expose:
+      - "13453"
+  proxy:
+    restart: always
+    build:
+      context:  ./nginx
+      dockerfile: Dockerfile
     ports:
-      - "13451:13451"
+      - "80:13451"
+    links:
+      - auth
+      - chat
+      - classification
