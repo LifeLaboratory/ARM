@@ -75,3 +75,6 @@ class Authentication(Resource):
         self.id_user = self.__args.get('id_user', None)
         answer = deleteUS({names.ID_USER: self.id_user})
         return answer, 200, {'Access-Control-Allow-Origin': '*'}
+
+    def option(self):
+        return "OK", 200, {'Access-Control-Allow-Origin': '*'}
