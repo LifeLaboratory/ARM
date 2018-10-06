@@ -1,6 +1,7 @@
 import pandas as pd
 from pprint import pprint
 
+
 class Answer:
     """Класс для работы с предложениями решений проблем"""
 
@@ -8,10 +9,11 @@ class Answer:
         """Загрузка датасета """
 
         df = pd.read_csv('messages_for_answer.csv',
-                        sep=',', encoding='utf-8')
+                         sep=',', encoding='utf-8')
         self.msgs = df.values.tolist()
 
-    def distance(self, a, b):
+    @staticmethod
+    def distance(a, b):
         """Расстояние между двумя массивами"""
 
         n, m = len(a), len(b)
@@ -57,17 +59,15 @@ class Answer:
         # pprint(answers)
         return answers
 
-    def add(self, msg="", ans=""):
+    def add(self, msg="", answer=""):
         """Добавление сообщения и ответа в датасет"""
 
-        data_file = open('messages_for_answer.csv','a')
-        data_file.write("\n\"" + ans + "\",\"" + msg + "\"")
+        data_file = open('messages_for_answer.csv', 'a')
+        data_file.write("\n\"" + answer + "\",\"" + msg + "\"")
         data_file.close()
-        self.msgs.append([ans, msg])
+        self.msgs.append([answer, msg])
 
 
 if __name__ == "__main__":
     ans = Answer()
     pprint(ans.get("Что делать, есть нет интернета?"))
-
-
