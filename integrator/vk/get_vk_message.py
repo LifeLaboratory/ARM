@@ -17,7 +17,7 @@ def selectChat(user_data):
     except:
         logging.error('error: Ошибка запроса к базе данных. Возможно такой пользователь уже есть')
         return {ANSWER: WARNING,
-                DATA: {"error_info":"Ошибка запроса к базе данных. Возможно такой пользователь уже есть"}}
+                DATA: {"error_info": "Ошибка запроса к базе данных. Возможно такой пользователь уже есть"}}
     return {ANSWER: SUCCESS, DATA: session}
 
 

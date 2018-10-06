@@ -14,4 +14,5 @@ select "id_chat"
     ) "Text"
 from "chat_list"
 where "id_user" = {id_user}
+  and "status" = '1'::text
 order by "date" desc
