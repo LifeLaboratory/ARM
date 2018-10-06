@@ -58,9 +58,9 @@ class Authentication(Resource):
             data = dict()
             data[names.SESSION] = self.session
             condata = self.selectid(data)
-            #print(condata)
+            print(condata)
             answer = listOperators(condata)
-        if self.param == "GetOperator" and self.id_user is not None:
+        elif self.param == "GetOperator" and self.id_user is not None:
             answer = profile({names.ID_USER: self.id_user})
         elif self.session is not None:
             data = dict()
