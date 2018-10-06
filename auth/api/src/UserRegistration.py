@@ -10,7 +10,9 @@ def registration(user_data):
     :param user_data: dict данные пользователя
     :return: UUID сессии
     """
-    check = [names.LOGIN, names.PASSWORD, names.NAME, names.DESCRIPTION, names.ID_COMPANY]
+    print()
+    print("USER_DATA", user_data)
+    check = [names.LOGIN, names.PASSWORD, names.NAME, names.ID_COMPANY]
     registration_data = dict.fromkeys(check, '')
     error = False
     for data in check:
