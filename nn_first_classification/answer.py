@@ -70,5 +70,4 @@ class Answer:
 
 if __name__ == "__main__":
     ans = Answer()
-    # pprint(ans.get("Что делать, есть нет интернета?"))
-    pprint(ans.get("Я не хочу пользоваться мегафон"))
+    pprint(ans.get("Что делать, есть нет интернета?"))
