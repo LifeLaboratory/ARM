@@ -48,8 +48,11 @@ class Authentication(Resource):
 
     def get(self):
         self.session = self.__args.get('Session', None)
-        data = dict()
-        data[names.SESSION] = self.session
-        condata = self.selectid(data)
-        answer = profile(condata)
+        if self.session is not None:
+            data = dict()
+            data[names.SESSION] = self.session
+            condata = self.selectid(data)
+            answer = profile(condata)
+        else:
+            answer = {names.ANSWER: "Error", names.DATA: {"error_info": "Session not found"}}
         return answer, 200, {'Access-Control-Allow-Origin': '*'}
