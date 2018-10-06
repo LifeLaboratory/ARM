@@ -1,6 +1,6 @@
-from route.RouteChat import Chat
+from route.RouteChat import Classificator
 
 
 ROUTES = {
-    Chat: '/api/v1/chat',
+    Classificator: '/api/v1/chat',
 }

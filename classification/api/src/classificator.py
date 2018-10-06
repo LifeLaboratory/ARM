@@ -52,10 +52,10 @@ class Answer:
             if minimums[3] > D and num != pos[0] and num != pos[1] and num != pos[2]:
                 minimums[3] = D
                 pos[3] = num
-        answers.append(self.msgs[pos[0]])
-        answers.append(self.msgs[pos[1]])
-        answers.append(self.msgs[pos[2]])
-        answers.append(self.msgs[pos[3]])
+        answers.append(self.msgs[pos[0]][0])
+        answers.append(self.msgs[pos[1]][0])
+        answers.append(self.msgs[pos[2]][0])
+        answers.append(self.msgs[pos[3]][0])
         # pprint(answers)
         return answers
 
