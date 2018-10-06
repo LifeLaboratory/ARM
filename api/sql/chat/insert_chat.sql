@@ -4,5 +4,5 @@ with ins as (
      values ('')
     )
 insert into "chat_list"("id_company", "id_user", "status", "date", "id_client")
-select {id_company}, {id_user}, 'Open', now(), {id_client}
+select {id_company}, {id_user}, 'Open', now()::timestamp, {id_client}
 returning "id_chat"

@@ -1,7 +1,7 @@
 with session_t as (
   select *
   from "session"
-  where session."session" = {Session}
+  where session."session" = '{Session}'::uuid
 )
 select "id_user"
   , coalesce("id_company",
@@ -14,4 +14,4 @@ select "id_user"
     ) as "id_company"
 from session_t
 where "id_user" is not null
-  and "id_company" is not null
+  or "id_company" is not null
