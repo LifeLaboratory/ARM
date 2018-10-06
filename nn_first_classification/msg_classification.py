@@ -97,6 +97,11 @@ class MsgClassification:
         else:
             return 0
 
+    def add(self, msg="", type_msg=""):
+        data_file = open('messages_with_type.csv', 'a')
+        data_file.write("\"" + msg + "\"," + str(type_msg) + "\n")
+        data_file.close()
+
 
 if __name__ == "__main__":
     classificator = MsgClassification()
