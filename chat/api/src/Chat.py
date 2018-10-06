@@ -50,6 +50,7 @@ def post_chat_message(id_client, Message):
             'Message': Message,
             'Data_message': datetime.datetime.now(),
             'Sender': 'Operator'}
+    vk.send_msg_to_vk('|'.join(id_client), Message)
     try:
         chat_history = Sql.exec(file="api/sql/chat/insert_message_chat.sql", args=args)
     except:
