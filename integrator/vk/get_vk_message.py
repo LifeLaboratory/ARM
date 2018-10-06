@@ -45,8 +45,7 @@ def database_holding(event):
         return 1
     args = {'SALT': "VK",
             'id_client': event.obj.from_id,
-            # TODO: Что за поле
-            # 'Message': Message,
+            'Message': event.obj.text,
             'Data_message': datetime.datetime.now(),
             'Sender': 'Client'
             }
