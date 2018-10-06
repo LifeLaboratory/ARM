@@ -1,5 +1,6 @@
 select "id_chat"
-  , "message" as "Message"
+  , "id_chat" as "id_client"
+  , "message" as "Text"
   , "data" as "Data"
   , "sender" as "Sender"
 from "chat_message"
