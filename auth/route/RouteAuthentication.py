@@ -66,7 +66,6 @@ class Authentication(Resource):
             data = dict()
             data[names.SESSION] = self.session
             condata = self.selectid(data)
-            #print("CONDATA :", condata)
             answer = profile(condata)
         else:
             answer = {names.ANSWER: "Error", names.DATA: {"error_info": "Session not found"}}
