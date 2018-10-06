@@ -1,0 +1,9 @@
+version: '2.1'
+
+services:
+  auth:
+    build: auth/
+    volumes:
+      - ./auth/ :/auth/
+    ports:
+      - "13451:13451"
