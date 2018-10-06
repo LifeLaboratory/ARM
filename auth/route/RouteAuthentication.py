@@ -23,9 +23,6 @@ class Authentication(Resource):
 
     def put(self):
         data = self.parse_data()
-
-        #print("DATA", data)
-        #print("CONDATA", condata[names.DATA])
         if data.get(names.SESSION, None) is not None:
             condata = convert(data)
             if condata[names.DATA].get(names.ID_USER, None) is None and condata[names.DATA].get(names.ID_COMPANY, None) is not None:
