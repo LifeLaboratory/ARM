@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import json
 import psycopg2
-from .config import DATABASE
+from auth.config.config import DATABASE
 from datetime import date, datetime
 from psycopg2.extras import RealDictCursor
 
@@ -100,6 +100,8 @@ class Sql:
     def _query_file_args_exec(file, args):
         with open(file, 'r') as f:
             query = f.read().format(**args)
+            print()
+            print(query)
             return Sql._exec(query)
 
     @staticmethod
@@ -124,7 +126,8 @@ class Sql:
             print(psycopg2.errorcodes.lookup(e.pgcode))
         finally:
             try:
-                result = current_connect.fetchall()
+                if current_connect.rowcount > 1:
+                    result = current_connect.fetchall()
                 connect.commit()
             except:
                 connect.rollback()

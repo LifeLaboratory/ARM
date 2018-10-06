@@ -2,6 +2,7 @@
 select "id_user"
   , "name" as "Name"
   , "status" as "Status"
+  , "login" as "Login"
 from users
 where "id_user" = any(
     select "id_user"

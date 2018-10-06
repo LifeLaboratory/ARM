@@ -126,7 +126,8 @@ class Sql:
             print(psycopg2.errorcodes.lookup(e.pgcode))
         finally:
             try:
-                result = current_connect.fetchall()
+                if current_connect.rowcount > 1:
+                    result = current_connect.fetchall()
                 connect.commit()
             except:
                 connect.rollback()
