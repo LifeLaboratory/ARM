@@ -25,7 +25,7 @@ services:
       context:  ./nginx
       dockerfile: Dockerfile
     ports:
-      - "80:13451"
+      - "80:80"
     links:
       - auth
       - chat
