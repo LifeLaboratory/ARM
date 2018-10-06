@@ -26,7 +26,7 @@ def selectUser(user_data):
     try:
         session = Sql.exec(file="api/sql/select_user_auth.sql", args=user_data)
         sesData = dict()
-        sesData[names.SESSION] = session[0]["session"]
+        sesData[names.SESSION] = session[0]["Session"]
         condata = convert(sesData)
         type = None
         #print(condata)
