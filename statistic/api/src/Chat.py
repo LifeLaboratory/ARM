@@ -10,7 +10,7 @@ def get_statistic():
     :return:
     """
     try:
-        list_chat = Sql.exec(file="api/sql/stati/select_rating_all_user_company.sql")
+        list_chat = Sql.exec(file="api/sql/statistic/select_rating_all_user_company.sql")
     except:
         logging.error('error: Ошибка запроса к базе данных. Возможно такой пользователь уже есть')
         return {names.ANSWER: names.WARNING,
