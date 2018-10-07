@@ -36,19 +36,16 @@ def database_holding(sault, user_id, msg, sender):
             # insertMessageToChat()
             # Добавляем в данный чат новое сообщение от ползователя
             Sql.exec(file="api/sql/chat/insert_chat.sql", args={'id_client': chat_id})
-            return 1
     else:
         # Добавляем новый чат и вставляем сообщение от пользователя
-        Sql.exec(file="../sql/insert_chat.sql", args={'id_client': chat_data['id_chat']})
-        return 1
+        Sql.exec(file="api/sql/chat/insert_chat.sql", args={'id_client': chat_data['id_chat']})
     args = {'SALT': sault,
             'id_client': user_id,
             'Message': msg,
             'Data_message': datetime.datetime.now(),
             'Sender': sender
             }
-    Sql.exec(file="../sql/insert_message_chat.sql", args=args)
-    return 1
+    Sql.exec(file="api/sql/chat/insert_message_chat.sql", args=args)
 
 
 def db_connect_new():

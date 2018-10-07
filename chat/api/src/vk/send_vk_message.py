@@ -26,7 +26,8 @@ def get_vk_user_data(user_id):
 
 
 def main():
-    send_msg_to_vk('vk|56176108', "asdasdasd")
+    print(get_vk_user_data('56176108'))
+    # send_msg_to_vk('56176108', "asdasdasd")
 
 
 if __name__ == '__main__':
