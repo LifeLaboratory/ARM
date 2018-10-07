@@ -4,5 +4,5 @@ select "id_chat"
   , "data"::text as "Data"
   , "sender" as "Sender"
 from "chat_message"
-where "id_chat" = {id_chat}
+where "id_chat" = '{id_chat}'
 order by "data" desc, id_message

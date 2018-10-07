@@ -10,6 +10,7 @@ class Chat(Resource):
         self.__parser = reqparse.RequestParser()
         self.__parser.add_argument('data')
         self.__parser.add_argument('id_company')
+        self.__parser.add_argument('id_chat')
         self.__parser.add_argument('id_user')
         self.__parser.add_argument('id_client')
         self.__parser.add_argument('Message')
