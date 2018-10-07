@@ -6,4 +6,4 @@ COPY requirements.txt ./
 RUN pip install -r requirements.txt
 COPY . .
 #COPY ./../api .
-CMD [ "python", "./vk/main.py" ]
+CMD [ "python", "./vk/main.py " ]

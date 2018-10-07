@@ -33,9 +33,10 @@ class Classificator(Resource):
         return answer, 200, {'Access-Control-Allow-Origin': '*'}
 
     def post(self):
-        Message = self.__args.get('Message', None)
+        data = self.parse_data()
+        Message = self.data.get('Message', None)
         answer = self.classification.get(Message)
-        return answer, 200, {'Access-Control-Allow-Origin': '*'}
+        return {'Answer': answer}, 200, {'Access-Control-Allow-Origin': '*'}
 
     def get(self):
         """

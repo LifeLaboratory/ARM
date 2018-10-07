@@ -8,7 +8,7 @@ class Answer:
     def __init__(self):
         """Загрузка датасета """
 
-        df = pd.read_csv('messages_for_answer.csv',
+        df = pd.read_csv('api/src/messages_for_answer.csv',
                          sep=',', encoding='utf-8')
         self.msgs = df.values.tolist()
 
