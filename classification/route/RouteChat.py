@@ -12,6 +12,7 @@ class Classificator(Resource):
         self.__parser.add_argument('id_user')
         self.__parser.add_argument('id_client')
         self.__parser.add_argument('Message')
+        self.__parser.add_argument('Answer')
         self.__args = self.__parser.parse_args()
         self.data = None
         self.id_company = None
@@ -28,14 +29,16 @@ class Classificator(Resource):
         Метод принимает добавление чата/сообщения
         :return:
         """
-        Message = self.__args.get('Message', None)
-        answer = {'Answer': self.classification.add(Message)}
+        data = self.parse_data()
+        Message = self.data.get('Message', None)
+        Answer = self.data.get('Answer', None)
+        answer = {'Answer': self.classification.add(Message, Answer)}
         return answer, 200, {'Access-Control-Allow-Origin': '*'}
 
     def post(self):
         data = self.parse_data()
         Message = self.data.get('Message', None)
-        print(Message)
+        # print(Message)
         answer = gs.converter({'Answer': self.classification.get(Message)})
         print(answer)
         return answer, 200, {'Access-Control-Allow-Origin': '*'}
