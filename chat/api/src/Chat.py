@@ -19,7 +19,7 @@ def get_chat_list_operator(id_user):
     try:
         list_chat = Sql.exec(file="api/sql/chat/select_chat_operator.sql", args={'id_user': id_user})
         for i in list_chat:
-            name = get_user_info(i['id_chat'].split('|')[0])
+            name = get_user_info(int(i['id_chat'].split('|')[0]))
             i['Name'] = name
     except:
         logging.error('error: Ошибка запроса к базе данных. Возможно такой пользователь уже есть')
@@ -36,7 +36,7 @@ def get_chat_list_history(id_user):
     try:
         list_chat = Sql.exec(file="api/sql/chat/select_history.sql", args={'id_user': id_user})
         for i in list_chat:
-            name = get_user_info(i['id_chat'].split('|')[0])
+            name = get_user_info(int(i['id_chat'].split('|')[0]))
             i['Name'] = name
     except:
         logging.error('error: Ошибка запроса к базе данных. Возможно такой пользователь уже есть')
@@ -53,7 +53,7 @@ def get_chat(id_chat):
     try:
         chat_history = Sql.exec(file="api/sql/chat/select_chat_history.sql", args={'id_chat': id_chat})
         for i in chat_history:
-            name = get_user_info(i['id_chat'].split('|')[0])
+            name = get_user_info(int(i['id_chat'].split('|')[0]))
             i['Name'] = name
     except:
         logging.error('error: Ошибка запроса к базе данных. Возможно такой пользователь уже есть')

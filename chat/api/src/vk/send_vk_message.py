@@ -22,7 +22,7 @@ def get_vk_user_data(user_id):
     vk = vk_session.get_api()
     answer = vk.users.get(user_id=user_id)
     # print(answer[0]['first_name'], answer[0]['last_name'])
-    return answer[0]['first_name'] + answer[0]['last_name']
+    return answer[0]['first_name'] + ' ' + answer[0]['last_name']
 
 
 def main():
