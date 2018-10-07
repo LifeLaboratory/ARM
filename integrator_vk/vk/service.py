@@ -46,6 +46,7 @@ def database_holding(sault, user_id, msg, sender):
             'Sender': sender
             }
     Sql.exec(file="api/sql/chat/insert_message_chat.sql", args=args)
+    pass
 
 
 def db_connect_new():

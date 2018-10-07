@@ -62,7 +62,7 @@ class Answer:
     def add(self, msg="", answer=""):
         """Добавление сообщения и ответа в датасет"""
 
-        data_file = open('messages_for_answer.csv', 'a')
+        data_file = open('api/src/messages_for_answer.csv', 'a')
         data_file.write("\n\"" + answer + "\",\"" + msg + "\"")
         data_file.close()
         self.msgs.append([answer, msg])
