@@ -17,14 +17,21 @@ def choice(user_data):
     elif user_data.get(names.NAME, None) is not None and user_data.get(names.ID_USER, None) is not None:
         print("UpdateUserName")
         answer = uName(user_data)
-    elif user_data.get(names.ID_USER, None) is not None:
+    elif
+    """
+    if user_data.get(names.ID_USER, None) is not None and user_data.get(names.LOGIN, None) is not None and user_data.get(names.PASSWORD, None) is not None:
         print("UpdateUserAuth")
         answer = uAuth(user_data)
-    """
-    if user_data.get(names.ID_COMPANY, None) is None and user_data.get(names.DESCRIPTION, None) is not None:
+
+    elif user_data.get(names.NAME, None) is not None and user_data.get(names.ID_USER, None) is not None:
+        print("UpdateUserName")
+        answer = uName(user_data)
+
+    elif user_data.get(names.ID_COMPANY, None) is None and user_data.get(names.DESCRIPTION, None) is not None:
         print("Company registration")
         answer = CompReg(user_data)
     else:
         print("User registration")
         answer = UsReg(user_data)
+
     return answer
