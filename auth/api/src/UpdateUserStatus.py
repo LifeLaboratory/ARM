@@ -22,11 +22,7 @@ def update(user_data):
     return answer
 
 def updateUser(user_data):
-    try:
-        session = Sql.exec(file="api/sql/company/update_status.sql", args=user_data)
-    except:
-        logging.error('error: Ошибка запроса к базе данных. Возможно такой пользователь уже есть')
-        return {names.ANSWER: names.WARNING,
-                names.DATA: {"error_info":"Ошибка запроса к базе данных. Возможно такой пользователь уже есть"}}
+
+    session = Sql.exec(file="api/sql/operator/update_status.sql", args=user_data)
     return {names.ANSWER: names.SUCCESS, names.DATA: session}
 

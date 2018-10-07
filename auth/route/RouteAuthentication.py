@@ -45,13 +45,12 @@ class Authentication(Resource):
         data = self.parse_data()
         condata = self.selectid(data)
         status = data.get('Status', None)
-        print("CONDATA :", condata)
-        if status:
-            pass
-            # answer = update({data.get('id_user')})
+        #print("CONDATA :", condata)
+        if status is not None:
+            answer = update(condata)
         else:
             answer = choice(condata)
-        answer = choice(condata)
+        #answer = choice(condata)
         return answer, 200, {'Access-Control-Allow-Origin': '*'}
 
     def post(self):
