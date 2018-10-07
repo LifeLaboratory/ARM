@@ -1,7 +1,7 @@
 import pandas as pd
 import operator
 import numpy as np
-from keras.models import Model
+from keras.models import Model, model_from_json
 from keras.layers import Dense, Input, LSTM, Embedding, SpatialDropout1D
 
 
@@ -102,9 +102,38 @@ class MsgClassification:
         data_file.write("\"" + msg + "\"," + str(type_msg) + "\n")
         data_file.close()
 
+    def save(self):
+        model_json = self.model.to_json()
+        json_file = open("model_classification.json", "w")
+        # Записываем архитектуру сети в файл
+        json_file.write(model_json)
+        json_file.close()
+        # Записываем данные о весах в файл
+        self.model.save_weights("model_classification.h5")
+        with open('periodicity.w5', 'w') as f:
+            for item in self.periodicity:
+                f.write("%s\n" % item)
+
+    def load(self):
+        json_file = open("model_classification.json", "r")
+        loaded_model_json = json_file.read()
+        json_file.close()
+        loaded_model = model_from_json(loaded_model_json)
+        # Загружаем сохраненные веса в модель
+        loaded_model.load_weights("model_classification.h5")
+        self.model = loaded_model
+        self.model.compile(loss='mean_squared_error', optimizer='sgd')
+        self.periodicity = []
+        with open('periodicity.w5', 'r') as f:
+            for line in f:
+                self.periodicity.append(line.replace("\n",""))
+
 
 if __name__ == "__main__":
     classificator = MsgClassification()
-    classificator.training()
+    # classificator.training()
+    # print(classificator.predict("Срочно ищет дом девочка."))
+    # classificator.save()
+    classificator.load()
     print(classificator.predict("Срочно ищет дом девочка."))
 
