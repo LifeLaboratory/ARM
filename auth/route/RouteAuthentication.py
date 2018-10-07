@@ -8,6 +8,8 @@ from auth.api.src.sessionToId import convert
 import auth.api.helpers.base_name as names
 from auth.api.src.ProfileOperator import profile
 from auth.api.src.deleteUser import deleteUS
+from auth.api.src.UpdateUserStatus import update
+
 
 class Authentication(Resource):
     def __init__(self):
@@ -16,6 +18,7 @@ class Authentication(Resource):
         self.__parser.add_argument('Session')
         self.__parser.add_argument('Param')
         self.__parser.add_argument('id_user')
+        self.__parser.add_argument('Status')
         self.__args = self.__parser.parse_args()
         self.data = None
         self.session = None
@@ -41,8 +44,13 @@ class Authentication(Resource):
     def put(self):
         data = self.parse_data()
         condata = self.selectid(data)
+        status = data.get('Status', None)
         print("CONDATA :", condata)
-        answer = choice(condata)
+        if status:
+            pass
+            # answer = update({data.get('id_user')})
+        else:
+            answer = choice(condata)
         return answer, 200, {'Access-Control-Allow-Origin': '*'}
 
     def post(self):

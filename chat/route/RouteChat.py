@@ -61,8 +61,11 @@ class Chat(Resource):
         :return:
         """
         self.session = self.__args.get('Session', None)
+        id_chat = self.__args.get('id_chat', None)
         print(self.session)
-        if self.session is not None:
+        if id_chat:
+            answer = get_chat(id_chat)
+        elif self.session is not None:
             data = dict()
             data[names.SESSION] = self.session
             condata = self.selectid(data)
