@@ -1,6 +1,6 @@
 from fbchat import Client
 from fbchat.models import *
-from api.service import database_holding
+from chat.api.helpers.service import database_holding
 
 def send_to_operator(event):
     return 1
