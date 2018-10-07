@@ -12,9 +12,8 @@ def send_msg_to_vk(str_chat_id, msg):
     vk_chat_id = str_chat_id.split('|')[1]
     vk_session = vk_api.VkApi(token=ACCESS_TOKEN_2)
     vk = vk_session.get_api()
-    for i in range(0,100):
-        database_holding('vk', vk_chat_id, msg, 'Operator')
-        vk.messages.send(user_id=vk_chat_id, message=msg)
+    database_holding('vk', vk_chat_id, msg, 'Operator')
+    vk.messages.send(user_id=vk_chat_id, message=msg)
 
 def main():
     send_msg_to_vk('vk|56176108', "asdasdasd")

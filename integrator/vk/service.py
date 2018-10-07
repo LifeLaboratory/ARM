@@ -41,7 +41,7 @@ def database_holding(sault, user_id, msg, sender):
         # Добавляем новый чат и вставляем сообщение от пользователя
         Sql.exec(file="../sql/insert_chat.sql", args={'id_client': chat_data['id_chat']})
         return 1
-    args = {'SALT': "VK",
+    args = {'SALT': sault,
             'id_client': user_id,
             'Message': msg,
             'Data_message': datetime.datetime.now(),
