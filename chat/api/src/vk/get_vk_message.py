@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 import vk_api
 from vk_api.bot_longpoll import VkBotLongPoll, VkBotEventType
-from api.service import database_holding
-import api.base_name as names
+from chat.api.helpers.service import database_holding
+import chat.api.helpers.base_name as names
 import logging
 
 ACCESS_TOKEN = '08b030e59cfca185c1e95f0caba3e7f245ba47681ed31b36606c95fb8294e94b1eefd1ce88858e501d007'
