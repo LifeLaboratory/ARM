@@ -62,14 +62,18 @@ class Chat(Resource):
         """
         self.session = self.__args.get('Session', None)
         id_chat = self.__args.get('id_chat', None)
+        archive = self.__args.get('Archive', None)
         print(self.session)
         if id_chat:
             answer = get_chat(id_chat)
-        elif self.session is not None:
+        elif self.session:
             data = dict()
             data[names.SESSION] = self.session
             condata = self.selectid(data)
-            answer = get_chat_list_operator(condata[names.ID_USER])
+            if archive == '1':
+                answer = get_chat_list_history(condata[names.ID_USER])
+            else:
+                answer = get_chat_list_operator(condata[names.ID_USER])
         else:
             answer = {names.ANSWER: "Error", names.DATA: {"error_info": "Session not found"}}
         return answer, 200, {'Access-Control-Allow-Origin': '*'}

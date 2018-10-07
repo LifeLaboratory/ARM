@@ -25,6 +25,20 @@ def get_chat_list_operator(id_user):
     return {names.ANSWER: names.SUCCESS, names.DATA: list_chat}
 
 
+def get_chat_list_history(id_user):
+    """
+    Метод получается список архивных чатов оператора
+    :return:
+    """
+    try:
+        list_chat = Sql.exec(file="api/sql/chat/select_history.sql", args={'id_user': id_user})
+    except:
+        logging.error('error: Ошибка запроса к базе данных. Возможно такой пользователь уже есть')
+        return {names.ANSWER: names.WARNING,
+                names.DATA: {"error_info": "Ошибка запроса к базе данных. Возможно такой пользователь уже есть"}}
+    return {names.ANSWER: names.SUCCESS, names.DATA: list_chat}
+
+
 def get_chat(id_chat):
     """
     Метод получает историю переписки
