@@ -2,18 +2,21 @@ version: '2.1'
 
 services:
   auth:
+    restart: always
     build: auth/
     volumes:
       - ./auth/ :/auth/
     expose:
       - "13451"
   chat:
+    restart: always
     build: chat/
     volumes:
       - ./chat/ :/chat/
     expose:
       - "13452"
   classification:
+    restart: always
     build: classification/
     volumes:
       - ./classification/ :/classification/
