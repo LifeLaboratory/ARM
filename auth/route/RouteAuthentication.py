@@ -51,6 +51,7 @@ class Authentication(Resource):
             # answer = update({data.get('id_user')})
         else:
             answer = choice(condata)
+        answer = choice(condata)
         return answer, 200, {'Access-Control-Allow-Origin': '*'}
 
     def post(self):
