@@ -17,9 +17,7 @@ def main():
     longpoll = VkBotLongPoll(vk_session, GROUP_ID)      # Активируем работу с longpoll сервером
 
     for event in longpoll.listen():                     # Ждем события
-        print("!!!", event.type)
         if event.type == VkBotEventType.MESSAGE_NEW:    # Если приняли новое сообщение
-            print("!!!")
             # vk_api.bot_longpoll.VkBotMessageEvent'>({'type': 'message_new',
             # 'object': {'date': 1538790046, 'from_id': 56176108, 'id': 19,
             # 'out': 0, 'peer_id': 56176108, 'text': 'asdas', 'conversation_message_id': 18,

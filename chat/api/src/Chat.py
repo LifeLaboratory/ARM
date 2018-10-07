@@ -82,8 +82,11 @@ def insert_new_chat(id_client):
     :return:
     """
     id_client = id_client.split('|')
+    user_info = get_user_info(id_client)
     args = {
-        'id_client': id_client[1]
+        'id_client': id_client[1] ,
+        'first_name': user_info[0]['first_name'],
+        'last_name': user_info[0]['last_name']
     }
     try:
         Sql.exec(file="api/sql/chat/insert_chat.sql", args=args)
@@ -101,3 +104,11 @@ def update_chat_status():
     :return:
     """
     pass
+
+def get_user_info(id_client):
+    """
+    Метод для получения информации о пользователе (Имя, Фамилия)
+    :param id_client:
+    :return:
+    """
+    return vk.get_vk_user_data(id_client)
