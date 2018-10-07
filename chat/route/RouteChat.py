@@ -15,6 +15,7 @@ class Chat(Resource):
         self.__parser.add_argument('id_client')
         self.__parser.add_argument('Message')
         self.__parser.add_argument('Session')
+        self.__parser.add_argument('Archive')
         self.__args = self.__parser.parse_args()
         self.data = None
         self.id_company = None
