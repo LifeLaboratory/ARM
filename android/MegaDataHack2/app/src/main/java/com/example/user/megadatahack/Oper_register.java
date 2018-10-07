@@ -64,12 +64,13 @@ public class Oper_register extends AppCompatActivity {
         login = findViewById(R.id.login);
         name = findViewById(R.id.name);
         repass = findViewById(R.id.repassword);
+        signup = findViewById(R.id.sign_up_button);
         signup.setOnClickListener(listener);
-                retrofit = new Retrofit.Builder()
-                        .baseUrl("http://90.189.132.25:13451/") //Базовая часть адреса
-                        .addConverterFactory(GsonConverterFactory.create()) //Конвертер, необходимый для преобразования JSON'а в объекты
-                        .build();
-                InterFace = retrofit.create(interFACE.class); //Создаем объект, при помощи которого будем выполнять запросы
+        retrofit = new Retrofit.Builder()
+                       .baseUrl("http://90.189.132.25/") //Базовая часть адреса
+                       .addConverterFactory(GsonConverterFactory.create()) //Конвертер, необходимый для преобразования JSON'а в объекты
+                       .build();
+        InterFace = retrofit.create(interFACE.class); //Создаем объект, при помощи которого будем выполнять запросы
     }
 }
 

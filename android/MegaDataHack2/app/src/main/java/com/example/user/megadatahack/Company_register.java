@@ -69,7 +69,7 @@ public class Company_register extends AppCompatActivity {
         Button signup = findViewById(R.id.reg_sign_up_button);
         signup.setOnClickListener(Signupclick);
         retrofit = new Retrofit.Builder()
-                .baseUrl("http://90.189.132.25:13451/") //Базовая часть адреса
+                .baseUrl("http://90.189.132.25/") //Базовая часть адреса
                 .addConverterFactory(GsonConverterFactory.create()) //Конвертер, необходимый для преобразования JSON'а в объекты
                 .build();
         InterFACE = retrofit.create(interFACE.class); //Создаем объект, при помощи которого будем выполнять запросы

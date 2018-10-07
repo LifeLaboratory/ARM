@@ -12,13 +12,13 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:label="ID ARM"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
             android:name=".LoginActivity"
-            android:label="@string/app_name">
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -27,18 +27,38 @@
         </activity>
         <activity
             android:name=".Company_register"
-            android:label="Регистрация компании" />
+            android:label="Регистрация компании"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Oper_register"
-            android:label="@string/title_activity_oper_register" />
+            android:label="Добавить оператора"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".chats_spis"
-            android:label="@string/title_activity_chats_spis"
+            android:label="«Мои чаты»"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Edit_personal_data"
             android:label="@string/title_activity_edit_personal_data" />
-        <activity android:name=".Oper_spis"></activity>
+        <activity
+            android:name=".Oper_spis"
+            android:label="«Мои операторы»" />
+        <activity
+            android:name=".CompanyInterface"
+            android:label="«Моя компания»"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Chat"
+            android:label="Чат с абонентом"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ChatArchive"
+            android:label="Архивное сообщение"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ChangeOper"
+            android:label="Редактирование оператора"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

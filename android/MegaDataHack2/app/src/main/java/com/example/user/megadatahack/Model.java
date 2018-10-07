@@ -1,7 +1,16 @@
 package com.example.user.megadatahack;
 
+import java.util.List;
+
 public class Model {
     private data Data;
+    private String Type;
+    public String getType(){
+        return Type;
+    }
+    public void setType(String type){
+        this.Type = type;
+    }
     public data getData(){
         return Data;
     };
@@ -12,10 +21,15 @@ public class Model {
         private String Login;
         private String Password;
         private String Name;
-        private String session;
+        private String Names;
+        private String Session;
         private String Description;
-        private String Type;
+        private String Status;
+        private int id_user;
 
+        public int getId_user() { return id_user; }
+        public String getStatus() { return Status; }
+        public String getNames() { return Names; }
         public String getLogin(){
             return Login;
         }
@@ -35,22 +49,16 @@ public class Model {
             this.Name = name;
         }
         public String getsession(){
-            return session;
+            return Session;
         }
         public void setsession(String session) {
-            this.session = session;
+            this.Session = session;
         }
         public String getDescription(){
             return Description;
         }
         public void setDescription(String description) {
             this.Description = description;
-        }
-        public String getType(){
-            return Type;
-        }
-        public void setType(String type){
-            this.Type = type;
         }
     }
     private String Answer;

@@ -27,7 +27,7 @@ public class LoginActivity extends AppCompatActivity {
     private View LoginFormView;
     private interFACE InterFACE;
     public String ses;
-    private Button ok_button; //= findViewById(R.id.email_sign_in_button);
+    private Button ok_button;
     private View.OnClickListener OKListener = new View.OnClickListener() {
         public void onClick(View v) {
             String temp = "{\"Login\": \"" + EmailView.getText() +"\", \"Password\": \"" + PasswordView.getText()+ "\"}";
@@ -36,23 +36,25 @@ public class LoginActivity extends AppCompatActivity {
                 public void onResponse(Call<Model> call, Response<Model> response) {
                     if(response.body().getAnswer().equals("Success")){
                         ses = response.body().getData().getsession();
-                        if(response.body().getData().getType().equals("Company")){
-                    //описать переключение на интерфейс компании
-
-                            Toast.makeText(getApplicationContext(), "I'm ok", LENGTH_LONG).show();
+                        Log.d("MegaDataHack_log", ses);
+                        if(response.body().getType().equals("Company")){
+                            //описать переключение на интерфейс компании
+                            Intent intent = new Intent(LoginActivity.this, CompanyInterface.class);
+                            intent.putExtra("session", ses);
+                            startActivity(intent);
+                        } else {
+                            //переключение на страницу чатов
+                            Intent intent = new Intent(LoginActivity.this, chats_spis.class);
+                            intent.putExtra("session", ses);
+                            startActivity(intent);
                         }
-                        else {
-                            Toast.makeText(getApplicationContext(), "I'm not ok", LENGTH_LONG).show();
-                         //переключение на страницу чатов
-                        }
+                    } else {
+                        Toast.makeText(getApplicationContext(),"Неверный логин или пароль",LENGTH_LONG).show();
                     }
-                    else Toast.makeText(getApplicationContext(),"Неверный логин или пароль",LENGTH_LONG).show();
                 }
 
                 @Override
                 public void onFailure(Call<Model> call, Throwable t) {
-                    Intent intent = new Intent(LoginActivity.this, chats_spis.class);
-                    startActivity(intent);
                     Toast.makeText(getApplicationContext(),"Нет соединения с сервером",LENGTH_LONG).show();
                 }
             });

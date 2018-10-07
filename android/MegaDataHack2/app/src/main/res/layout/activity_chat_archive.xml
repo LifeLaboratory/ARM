@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".chats_spis">
+    tools:context=".Chat">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -19,21 +19,17 @@
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
     </android.support.design.widget.AppBarLayout>
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#ededed"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        tools:context=".chats_spis"
-        tools:showIn="@layout/app_bar_chats_spis">
-
-        <EditText
+        tools:context=".Chat"
+        tools:showIn="@layout/activity_chat">
+        <ListView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="bottom"
-            android:hint="Сообщение"
-            android:id="@+id/my_msg"/>
+            android:layout_height="match_parent"
+            android:id="@+id/msgs">
+        </ListView>
     </RelativeLayout>
 
 </android.support.design.widget.CoordinatorLayout>
