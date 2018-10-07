@@ -46,3 +46,6 @@ class Classificator(Resource):
         print(self.id_user)
         answer = None # get_chat_list_operator(self.id_user)
         return answer, 200, {'Access-Control-Allow-Origin': '*'}
+
+    def option(self):
+        return "OK", 200, {'Access-Control-Allow-Origin': '*'}
