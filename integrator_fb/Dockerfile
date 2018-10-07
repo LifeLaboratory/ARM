@@ -6,4 +6,4 @@ COPY requirements.txt ./
 RUN pip install -r requirements.txt
 COPY . .
 #COPY ./../api .
-CMD [ "python", "fb/recv_facebook_message.py" ]
+CMD [ "python", "./recv_facebook_message.py" ]
