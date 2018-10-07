@@ -35,7 +35,9 @@ class Classificator(Resource):
     def post(self):
         data = self.parse_data()
         Message = self.data.get('Message', None)
+        print(Message)
         answer = gs.converter({'Answer': self.classification.get(Message)})
+        print(answer)
         return answer, 200, {'Access-Control-Allow-Origin': '*'}
 
     def get(self):
