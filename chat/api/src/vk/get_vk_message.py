@@ -13,6 +13,14 @@ def send_to_operator(user_id, msg):
     return 1
 
 
+def get_vk_user_data(user_id):
+    vk_session = vk_api.VkApi(token=ACCESS_TOKEN_2)
+    vk = vk_session.get_api()
+    answer = vk.users.get(user_id=user_id)
+    # print(answer[0]['first_name'], answer[0]['last_name'])
+    return answer
+
+
 def main():
     vk_session = vk_api.VkApi(token=ACCESS_TOKEN_2)     # Создаем сессию
     longpoll = VkBotLongPoll(vk_session, GROUP_ID)      # Активируем работу с longpoll сервером

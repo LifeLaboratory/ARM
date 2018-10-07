@@ -8,12 +8,22 @@ GROUP_ID = '172231442'
 def get_from_operator():
     return 1, 1
 
+
 def send_msg_to_vk(str_chat_id, msg):
     vk_chat_id = str_chat_id.split('|')[1]
     vk_session = vk_api.VkApi(token=ACCESS_TOKEN_2)
     vk = vk_session.get_api()
     database_holding('vk', vk_chat_id, msg, 'Operator')
     vk.messages.send(user_id=vk_chat_id, message=msg)
+
+
+def get_vk_user_data(user_id):
+    vk_session = vk_api.VkApi(token=ACCESS_TOKEN_2)
+    vk = vk_session.get_api()
+    answer = vk.users.get(user_id=user_id)
+    # print(answer[0]['first_name'], answer[0]['last_name'])
+    return answer
+
 
 def main():
     send_msg_to_vk('vk|56176108', "asdasdasd")
