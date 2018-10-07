@@ -5,4 +5,4 @@ select "id_chat"
   , "sender" as "Sender"
 from "chat_message"
 where "id_chat" = '{id_chat}'
-order by "data" desc, id_message
+order by "data", id_message
