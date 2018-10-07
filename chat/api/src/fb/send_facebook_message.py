@@ -1,5 +1,6 @@
 from fbchat import Client
 from fbchat.models import *
+from api.service import database_holding
 
 def get_from_operator(event):
     return '100001371797717', 'send ret'
@@ -11,6 +12,7 @@ def main():
     client = Client('den-isk1995@mail.ru', '2xkzWW+%nKND', max_tries=100)
     while True:
         thread_id, msg = get_from_operator(client)
+        database_holding('fb', thread_id, msg, 'Operator')
         client.sendMessage(msg,thread_id)
 
     client.logout()
