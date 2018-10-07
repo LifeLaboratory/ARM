@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import json
 import psycopg2
-from auth.config.config import DATABASE
+from .config import DATABASE
 from datetime import date, datetime
 from psycopg2.extras import RealDictCursor
 from integrator_vk.vk.base_name import *
@@ -49,6 +49,7 @@ def database_holding(sault, user_id, msg, sender):
             }
     Sql.exec(file="../sql/insert_message_chat.sql", args=args)
     return 1
+
 
 def db_connect_new():
     try:

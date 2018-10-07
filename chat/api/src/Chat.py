@@ -65,12 +65,14 @@ def post_chat_message(id_client, Message):
             'Data_message': datetime.datetime.now(),
             'Sender': 'Operator'}
     vk.send_msg_to_vk('|'.join(id_client), Message)
+    '''
     try:
         chat_history = Sql.exec(file="api/sql/chat/insert_message_chat.sql", args=args)
     except:
         logging.error('error: Ошибка запроса к базе данных. Возможно такой пользователь уже есть')
         return {names.ANSWER: names.WARNING,
                 names.DATA: {"error_info": "Ошибка запроса к базе данных. Возможно такой пользователь уже есть"}}
+    '''
     return {names.ANSWER: names.SUCCESS, names.DATA: chat_history}
 
 

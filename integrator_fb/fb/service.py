@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 import json
 import psycopg2
-from api.config.config import DATABASE
+from .config import DATABASE
 from datetime import date, datetime
 from psycopg2.extras import RealDictCursor
-from integrator.vk.base_name import *
+from integrator_vk.vk.base_name import *
 import logging
 import datetime
 

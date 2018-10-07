@@ -30,3 +30,11 @@ services:
       - auth
       - chat
       - classification
+  vk:
+    build: integrator_vk/
+    volumes:
+      - ./integrator_vk/ :/integrator_vk/
+  fb:
+    build: integrator_fb/
+    volumes:
+      - ./integrator_fb/ :/integrator_fb/
