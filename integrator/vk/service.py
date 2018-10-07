@@ -4,6 +4,51 @@ import psycopg2
 from auth.config.config import DATABASE
 from datetime import date, datetime
 from psycopg2.extras import RealDictCursor
+from integrator.vk.base_name import *
+import logging
+import datetime
+
+
+def selectChat(user_data):
+    try:
+        session = Sql.exec(file="api/sql/chat/select_exists_chat.sql", args=user_data)
+    except:
+        logging.error('error: Ошибка запроса к базе данных. Возможно такой пользователь уже есть')
+        return {ANSWER: WARNING,
+                DATA: {"error_info": "Ошибка запроса к базе данных. Возможно такой пользователь уже есть"}}
+    return {ANSWER: SUCCESS, DATA: session}
+
+
+# vk_api.bot_longpoll.VkBotMessageEvent'>({'type': 'message_new', 'object':
+# {'date': 1538790046, 'from_id': 56176108, 'id': 19, 'out': 0, 'peer_id': 56176108,
+# 'text': 'asdas', 'conversation_message_id': 18, 'fwd_messages': [],
+# 'important': False, 'random_id': 0, 'attachments': [], 'is_hidden': False},
+# 'group_id': 172231442})>
+def database_holding(sault, user_id, msg, sender):
+    check = ['id_chat']
+    chat_data = dict.fromkeys(check, '')
+    chat_data['id_chat'] = sault + '|' + str(user_id)
+
+    select_data = selectChat(chat_data)
+    if select_data.get(ANSWER) is SUCCESS:
+        chat_id = select_data.get(DATA)
+        if chat_id:
+            # insertMessageToChat()
+            # Добавляем в данный чат новое сообщение от ползователя
+            Sql.exec(file="api/sql/chat/insert_chat.sql", args={'id_client': chat_id})
+            return 1
+    else:
+        # Добавляем новый чат и вставляем сообщение от пользователя
+        Sql.exec(file="../sql/insert_chat.sql", args={'id_client': chat_data['id_chat']})
+        return 1
+    args = {'SALT': "VK",
+            'id_client': user_id,
+            'Message': msg,
+            'Data_message': datetime.datetime.now(),
+            'Sender': sender
+            }
+    Sql.exec(file="../sql/insert_message_chat.sql", args=args)
+    return 1
 
 
 def db_connect_new():
