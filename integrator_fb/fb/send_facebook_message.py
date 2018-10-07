@@ -1,6 +1,6 @@
 from fbchat import Client
 from fbchat.models import *
-from .service import database_holding
+from integrator_fb.fb.service import database_holding
 
 def get_from_operator(event):
     return '100001371797717', 'send ret'

@@ -6,4 +6,4 @@ COPY requirements.txt ./
 RUN pip install -r requirements.txt
 COPY . .
 #COPY ./../api .
-CMD [ "python", "./vk/send_vk_message.py " ]
+CMD [ "python", "vk/get_vk_message.py " ]
