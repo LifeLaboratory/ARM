@@ -79,5 +79,5 @@ class Chat(Resource):
             answer = {names.ANSWER: "Error", names.DATA: {"error_info": "Session not found"}}
         return answer, 200, {'Access-Control-Allow-Origin': '*'}
 
-    # def option(self):
-    #     return "OK", 200, {'Access-Control-Allow-Origin': '*'}
+    def option(self):
+        return "OK", 200, {'Access-Control-Allow-Origin': '*'}

@@ -29,12 +29,12 @@ class Classificator(Resource):
         :return:
         """
         Message = self.__args.get('Message', None)
-        answer = self.classification.add(Message)
+        answer = {'Answer': self.classification.add(Message)}
         return answer, 200, {'Access-Control-Allow-Origin': '*'}
 
     def post(self):
         Message = self.__args.get('Message', None)
-        answer = self.classification.get(Message)
+        answer = {'Answer': self.classification.get(Message)}
         return answer, 200, {'Access-Control-Allow-Origin': '*'}
 
     def get(self):
@@ -44,8 +44,8 @@ class Classificator(Resource):
         """
         self.id_user = self.__args.get('id_user', None)
         print(self.id_user)
-        answer = None # get_chat_list_operator(self.id_user)
+        answer = {'Answer': None} # get_chat_list_operator(self.id_user)
         return answer, 200, {'Access-Control-Allow-Origin': '*'}
 
-    # def option(self):
-    #     return "OK", 200, {'Access-Control-Allow-Origin': '*'}
+    def option(self):
+        return "OK", 200, {'Access-Control-Allow-Origin': '*'}

@@ -30,25 +30,22 @@ def database_holding(sault, user_id, msg, sender):
     chat_data['id_chat'] = sault + '|' + str(user_id)
 
     select_data = selectChat(chat_data)
-    if select_data.get(ANSWER) is SUCCESS:
+    if select_data.get(DATA):
         chat_id = select_data.get(DATA)
         if chat_id:
             # insertMessageToChat()
             # Добавляем в данный чат новое сообщение от ползователя
-            Sql.exec(file="../sql/chat/insert_chat.sql", args={'id_client': chat_id})
-            return 1
+            Sql.exec(file="api/sql/chat/insert_chat.sql", args={'id_client': user_id, 'SAULT': sault})
     else:
         # Добавляем новый чат и вставляем сообщение от пользователя
-        Sql.exec(file="../sql/insert_chat.sql", args={'id_client': chat_data['id_chat']})
-        return 1
+        Sql.exec(file="api/sql/chat/insert_chat.sql", args={'id_client': user_id, 'SALT': sault})
     args = {'SALT': sault,
             'id_client': user_id,
             'Message': msg,
             'Data_message': datetime.datetime.now(),
             'Sender': sender
             }
-    Sql.exec(file="../sql/insert_message_chat.sql", args=args)
-    return 1
+    Sql.exec(file="api/sql/chat/insert_message_chat.sql", args=args)
 
 
 def db_connect_new():
