@@ -17,7 +17,8 @@ def get_chat_list_operator(id_user):
     :return:
     """
     try:
-        list_chat = Sql.exec(file="api/sql/chat/select_chat_operator.sql", args={'id_user': id_user})
+        # list_chat = Sql.exec(file="api/sql/chat/select_chat_operator.sql", args={'id_user': id_user})
+        list_chat = Sql.exec(file="../sql/chat/select_chat_operator.sql", args={'id_user': id_user})
         # for i in list_chat:
         #     name = get_user_info(int(i['id_chat'].split('|')[0]))
         #     i['Name'] = name
@@ -119,3 +120,5 @@ def get_user_info(id_client):
     :return:
     """
     return vk.get_vk_user_data(id_client)
+
+print(get_chat_list_operator('52'))
