@@ -12,16 +12,35 @@ from auth.api.src.UpdateUserStatus import update
 
 
 class Authentication(Resource):
+    arguments = {
+        'cookies': [
+            'session_id'
+        ],
+        'form': [
+            'user_params',
+            'status'
+        ]
+    }
+
     def __init__(self):
         self.__parser = reqparse.RequestParser()
         self.__parser.add_argument('data')
-        self.__parser.add_argument('Session')
-        self.__parser.add_argument('Param')
-        self.__parser.add_argument('id_user')
+        self.__parser.add_argument('session_id', location='cookies')
+        self.__parser.add_argument('user_params', location='form')
+        self.__parser.add_argument('user_id', type=int)
         self.__parser.add_argument('Status')
         self.__args = self.__parser.parse_args()
         self.data = None
         self.session = None
+
+    def init_parse_param(self):
+        """
+        Метод инициализирует входные параметры
+        :return:
+        """
+        for key, values in self.arguments.items():
+            for value in values:
+                self.__parser.add_argument(value, location=key)
 
     def parse_data(self):
         self.data = self.__args.get('data', None)
