@@ -18,22 +18,20 @@ class Authentication(Resource):
         ],
         'form': [
             'user_params',
-            'status'
+            'status',
+            'Session',
+            'data'
         ]
     }
 
     def __init__(self):
         self.__parser = reqparse.RequestParser()
-        self.__parser.add_argument('data')
-        self.__parser.add_argument('session_id', location='cookies')
-        self.__parser.add_argument('user_params', location='form')
-        self.__parser.add_argument('user_id', type=int)
-        self.__parser.add_argument('Status')
+        self.__init_parse_param()
         self.__args = self.__parser.parse_args()
         self.data = None
         self.session = None
 
-    def init_parse_param(self):
+    def __init_parse_param(self):
         """
         Метод инициализирует входные параметры
         :return:
@@ -43,8 +41,8 @@ class Authentication(Resource):
                 self.__parser.add_argument(value, location=key)
 
     def parse_data(self):
-        self.data = self.__args.get('data', None)
-        self.data = gs.converter(self.data)
+        self.data = self.__args.get('Session', None)
+        # self.data = gs.converter(self.data)
         return self.data
 
     def selectid(self, data):
